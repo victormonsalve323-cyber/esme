@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #ff007f 0%, #a10052 45%, #3d001e 85%, #14000a 100%) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título de arriba (Esmeralda) */
+.main-title {
+    position: absolute;
+    top: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff007f, 0 0 45px #ff007f;
+    letter-spacing: 3px;
+    z-index: 10;
+    animation: titleGlow 2.5s infinite ease-in-out alternate;
+}
+
+@keyframes titleGlow {
+    0% {
+        transform: scale(0.98);
+        text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff007f;
+    }
+    100% {
+        transform: scale(1.05);
+        text-shadow: 0 0 25px #ffffff, 0 0 40px #ff007f, 0 0 60px #ff007f;
+    }
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Frases a los lados */
+.floating-text {
+    position: absolute;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff007f, 0 0 30px #ff007f;
+    z-index: 5;
+    animation: floatText 3s infinite ease-in-out alternate;
+}
+
+@keyframes floatText {
+    0% { transform: translateY(0px) scale(0.95); opacity: 0.85; }
+    100% { transform: translateY(-15px) scale(1.08); opacity: 1; }
+}
+
+/* Corazones flotantes decorativos */
+.floating-heart {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 2;
+    opacity: 0.85;
+    animation: floatHeart 3.5s infinite ease-in-out alternate;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0px) rotate(-12deg) scale(0.9); }
+    100% { transform: translateY(-22px) rotate(12deg) scale(1.25); }
+}
+
+/* Editor CSS inferior estilo terminal */
+.code-editor {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    max-width: 380px;
+    background: rgba(15, 0, 10, 0.92);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 105, 180, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
+    z-index: 10;
+    color: #ff80ab;
+    font-size: 0.85rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.filename {
+    color: #ffb2dd;
+    font-size: 0.8rem;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid rgba(255, 105, 180, 0.3);
+    margin: 8px 0;
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
